@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import usuarioRouter from './routes/usuario.route';
 
 
 export class App{
@@ -9,9 +10,10 @@ export class App{
 
     constructor() {
         this.express = express();
-        this.listen();
         this.middlewares();
         this.database();
+        this.routes();
+        this.listen();
     }
     public getApp(): express.Application {
         return this.express;
@@ -28,6 +30,10 @@ export class App{
         });
     }
     private database(): void {
-        mongoose.connect('mongodb+srv://samuka:Senha@cluster0.sxsxfww.mongodb.net/?retryWrites=true&w=majority');
+        mongoose.connect('mongodb+srv://samuka:05413196@cluster0.sxsxfww.mongodb.net/?retryWrites=true&w=majority');
+    }
+
+    private routes(): void {
+        this.express.use('/usuarios', usuarioRouter)
     }
 }

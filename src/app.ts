@@ -30,7 +30,7 @@ export class App{
         });
     }
     private database(): void {
-        mongoose.connect('mongodb+srv://samuka:05413196@cluster0.sxsxfww.mongodb.net/?retryWrites=true&w=majority');
+        mongoose.connect('mongodb+srv://samuka:Senha@cluster0.sxsxfww.mongodb.net/?retryWrites=true&w=majority');
     }
 
     private routes(): void {
